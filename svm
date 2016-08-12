@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#######################################################
+#  The HSSVM command script, created by jun 2010-5-8  #
+#######################################################
+
+export SVM_HOME=`dirname $0`
+
+cygwin=false
+case "`uname`" in
+CYGWIN*) cygwin=true;;
+esac
+
+# if no args specified, show usage
+if [ $# = 0 ]; then
+    echo "Usage: svm COMMAND"
+    echo "where COMMAND is one of:"
+    echo "  checkdata     check if the format of sample data is right"
+    echo "  train         train known sample data"
+    echo "  predict       predict unknown sample data"
+    echo "  scale         normalize the sample data"  
+    echo "  convert       run data converter"
+    echo "  search        run parameters searching"
+    echo "  runall        run all operations"
+    exit 1
+fi
+
+if [ "$JAVA_HOME" = "" ]; then
+  echo "Error: JAVA_HOME is not set."
+  exit 1
+fi
+
+# get arguments
+COMMAND=$1
+shift
+
+JAVA=$JAVA_HOME/bin/java
+JAVA_HEAP_MAX=-Xmx1024m 
+CLASSPATH=${CLASSPATH}:$SVM_HOME/*:$SVM_HOME/lib/*
+
+# cygwin path translation
+if $cygwin; then
+  CLASSPATH=`cygpath -p -w "$CLASSPATH"`
+  SVM_HOME=`cygpath -w "$SVM_HOME"`
+fi
+
+# figure out which class to run
+if [ "$COMMAND" = "train" ] ; then  ##the blank is required
+    CLASS='Trainer'
+elif [ "$COMMAND" = "predict" ] ; then
+    CLASS='Predictor'
+elif [ "$COMMAND" = "scale" ] ; then
+    CLASS='Normalizer'    
+elif [ "$COMMAND" = "convert" ] ; then
+    CLASS='DataTransfer'
+elif [ "$COMMAND" = "search" ] ; then 
+    CLASS='ParamOptimizer'
+elif [ "$COMMAND" = "checkdata" ] ; then
+  CLASS='DataChecker'
+elif [ "$COMMAND" = "runall" ] ; then
+    CLASS='RunAll'
+else
+  CLASS=$COMMAND
+fi
+
+# run it
+exec $JAVA $JAVA_HEAP_MAX -classpath "$CLASSPATH" $CLASS $@
+

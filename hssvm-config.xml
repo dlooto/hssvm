@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- created on 2010-5-15, by jun -->
+
+<hssvm-config>
+
+    <!-- this factor determines storing how many rows of kernel matrix in cache -->
+	<cache-factor>0.05</cache-factor>
+	
+	<!-- the type of kernel function -->
+	<kernel>2</kernel>
+	
+	<!-- tolerance of termination criterion -->    
+	<eps>0.001</eps>
+
+    <!-- names of sample file -->
+	<train-file>breastcancertrain</train-file>
+	<test-file>breastcancertest</test-file>
+	
+	<!-- the fold number in cross-validation -->   
+	<fold>5</fold>
+
+    <!-- the scopes of C and gamma -->
+	<C-lower>0.1</C-lower>
+	<C-upper>0.5</C-upper>
+	<C-step>0.1</C-step>
+	<gamma-lower>1</gamma-lower>
+	<gamma-upper>5</gamma-upper>
+	<gamma-step>1</gamma-step>
+
+    <!-- whether or not normalize data when searching parameter -->
+    <!-- true: scale data,  false: not to do -->
+	<if-search-scale>true</if-search-scale>
+	
+	<!-- whether or not normalize data when training and prediction -->
+	<!-- true: scale data,  false: not to do --> 
+	<if-classify-scale>true</if-classify-scale>
+	
+	<!-- scaling bound,it's availabe only if-search-scale or if-classify-scale is availabe -->
+	<scale-lower>-1</scale-lower>
+	<scale-upper>1</scale-upper>
+
+    <!--0: random, 1: k-fold cross, 2: k-fold random cross-->
+	<cross-validate-way>1</cross-validate-way>
+
+    <!-- the desired lowest accuracy, all gamma-C pairs of searching results -->
+    <!-- which are equal or greater than this accuracy value will be used for --> 
+    <!-- classification process -->    
+	<required-accuracy>0.85</required-accuracy>
+	
+	<!-- determines how to choose optimal gamma-C pair --> 
+    <!-- 0: minimal C,  1: minimal gamma,  2: both C and gamma are minimal -->
+	<best-param-strategy>0</best-param-strategy>
+	
+	<!-- true: write file, false: not do --> 
+	<if-write-search-result>false</if-write-search-result>
+
+</hssvm-config>

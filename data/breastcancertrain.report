@@ -1,0 +1,24 @@
+
+The following parameters are used : 
+   File used in Searching: breastcancertrain
+   Cache factor: 0.05
+   Kernel function type: RBF
+   Epsilon: 0.0010
+   The way of cross validation: k-fold cross
+   Broken number: 5
+   Optimal gamma-C pair strategy: Minimal C
+   C :      [1.0 5.0]  step=1.0
+   Gamma:   [1.0 5.0]  step=1.0
+   Write searching result to file: true
+ 	Normalize data when searching: true
+   File used in training:   breastcancertrain
+   File used in prediction: breastcancertest
+   Required accuracy: 0.85
+
+
+Best results in searching: 
+  C=1.0  gamma=2.0  accuracy=100.0%(93/93)
+
+Best results in classification: 
+  C=1.0  gamma=2.0  accuracy=93.20388349514563%(96/103)
+  C=1.0  gamma=4.0  accuracy=93.20388349514563%(96/103)

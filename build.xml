@@ -1,0 +1,82 @@
+﻿<?xml version="1.0"?>
+
+<!-- Created on 2009-11-27 ,by jun -->
+
+
+<project name="hssvm" default="usage" basedir=".">
+    
+	<!-- directory structrue of project -->
+	<property name="project.name"   value="hssvm" />
+	<property name="build.dir"      value="${basedir}/build" />
+	<property name="build.java.dir" value="${build.dir}/java" />
+	<property name="src.dir"        value="${basedir}/src" />
+	<property name="src.java.dir"   value="${src.dir}/java" />
+	<property name="lib.dir"        value="${basedir}/lib" />
+	<property name="jar.dir"        value="${basedir}" />
+	<property name="v"              value="" /> <!-- version, usage: -Dv=1.0-->
+	
+	<!-- no used -->
+	<property name="package.name" value="hssvm-core" />
+	<property name="tv" value="1.0" />
+    
+	<!-- define classpath -->
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${jar.dir}">
+			<include name="${project.name}*.jar" />
+		</fileset>
+	</path>
+
+    <!-- usage -->
+    <target name="usage">
+    	<echo>ant jar            compile source and create a jar</echo>
+	</target>
+	
+	<!--  Prepare -->
+	<target name="prepare">
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.java.dir}" />
+	</target>
+
+	<!--  Compile -->
+	<target name="compile" depends="prepare">
+		<javac srcdir="${src.java.dir}" destdir="${build.java.dir}">
+			<classpath refid="classpath" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<!-- Create application jar -->
+	<target name="jar" depends="compile">
+		<delete>
+            <fileset dir="${jar.dir}">
+            	<include name="${project.name}*.jar"/>
+			</fileset>
+        </delete>
+		<jar destfile="${jar.dir}/${project.name}${v}.jar" basedir="${build.java.dir}" >
+			<include name="**/*.class" />
+		</jar>
+		<delete dir="${build.dir}" />
+	</target>
+	
+  <!-- Create hssvm tool jar. No used -->
+	<target name="tool-jar" depends="compile">
+		<delete>
+            <fileset dir="${lib.dir}">
+            	<include name="${package.name}-${tv}.jar"/>
+			</fileset>
+        </delete>
+		
+		<jar destfile="${lib.dir}/${package.name}-${tv}.jar" basedir="${build.java.dir}" >
+			<include name="**/*.class" />
+			<exclude name="*.class" />
+		</jar>
+		<delete dir="${build.dir}" />
+	</target>
+
+</project>
+
+
