@@ -304,5 +304,5 @@ Usage:      =================================================
 
 4. 其他
 有任何问题或意见，请联系：
-    wangkai73@sina.com， tangxb200@126.com， xjbean@gmail.com    
+    xjbean@qq.com    
          
