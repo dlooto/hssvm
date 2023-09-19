@@ -1,6 +1,7 @@
- HSSVM installation and usage: (v1.0.1)
+ # HSSVM 
+ 
 
-Update history: ==============================================
+## Update history
 
 1. From this version, the version number is normalized to hssvm1.0.1;
 2. In this version, we delete the features about running parameter-searching and 
@@ -11,8 +12,13 @@ Update history: ==============================================
     other POSIX system).If you want to use this program on Windows, the cygwin is 
     required to be installed.
 
+1. 自该版本起，版本号规范化为hssvm1.0.1;
+2. 删去以前版本中从ant运行参数搜索及run-all功能，相关配置文件一并删除，即:ant search-param
+   ant run-all 两命令不再有效； 原ant打jar包功能保留。
+3. 改由命令svm search conf, svm runall conf代替，在Linux下运行（windows下可用cygwin）   
 
-Usage:      =================================================
+
+## Installation and Usage: (v1.0.1)
 
 0. Summary
     This program is mainly used for solving multi-class problem in Statistical Learning.
@@ -30,21 +36,6 @@ Usage:      =================================================
         training, prediction, and report running results.
     8) Execution time can be recorded;    
     9) Provide cache for kernel-matrix to train or predict large-scale sample data.
-
-
-HSSVM用法说明文档
-
-
-Update history:＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-
-1. 自该版本起，版本号规范化为hssvm1.0.1;
-2. 删去以前版本中从ant运行参数搜索及run-all功能，相关配置文件一并删除，即:ant search-param
-   ant run-all 两命令不再有效； 原ant打jar包功能保留。
-3. 改由命令svm search conf, svm runall conf代替，在Linux下运行（windows下可用cygwin）
-
-
-
-Usage：＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 0. 概述
     该工具包主要用于解决SVM(支持向量机)多分类问题。利用该工具包，可以对特定格式的样本
@@ -71,6 +62,9 @@ Usage：＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
     9）带缓存机制，可进行大数据量的训练与预测（如样本数据中某最大类样本量超过3000以上）。
 
+## 相关资料
+* [博士论文](https://kns.cnki.net/kcms2/article/abstract?v=f77bZMqd99LaVoq1uLKgd-3nPsrlRSS-EBOLUr0T_t5jnqvSGLIRAmkIQ5vQxcHhZzRIdm9ak97fv7rUWHRavOhivD2MAWaj7bXeKIPqxultyeMJ_RiSMQ==&uniplatform=NZKPT&language=gb)
+* [硕士论文](https://kns.cnki.net/kcms2/article/abstract?v=f77bZMqd99LaVoq1uLKgd-3nPsrlRSS-EBOLUr0T_t4RCbFJuvQkY4cbvF13zV_diyPxL-hI39EykAupfYjIYI387wjtDMoyeJzX6pHV6Vrc0DYdFjUuUw==&uniplatform=NZKPT&language=gb)
 
-微信(WeChat)公众号：闲思悬想录
+联系： 微信(WeChat)公众号：闲思悬想录
 
