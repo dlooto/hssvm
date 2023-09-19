@@ -3,24 +3,24 @@
 
 ## Update history
 
-1. From this version, the version number is normalized to hssvm1.0.1;
-2. In this version, we delete the features about running parameter-searching and 
+- From this version, the version number is normalized to hssvm1.0.1;
+- In this version, we delete the features about running parameter-searching and 
     run-all from Ant script, that is, commands "ant search-param" and "ant run-all" 
     are no longer available.
-3. The functions of parameter-searching and run-all are replaced with commands 
+- The functions of parameter-searching and run-all are replaced with commands 
     "svm search conf" and "svm runall conf", both of them are used on Linux(all 
     other POSIX system).If you want to use this program on Windows, the cygwin is 
     required to be installed.
 
-1. 自该版本起，版本号规范化为hssvm1.0.1;
-2. 删去以前版本中从ant运行参数搜索及run-all功能，相关配置文件一并删除，即:ant search-param
+- 自该版本起，版本号规范化为hssvm1.0.1;
+- 删去以前版本中从ant运行参数搜索及run-all功能，相关配置文件一并删除，即:ant search-param
    ant run-all 两命令不再有效； 原ant打jar包功能保留。
-3. 改由命令svm search conf, svm runall conf代替，在Linux下运行（windows下可用cygwin）   
+- 改由命令svm search conf, svm runall conf代替，在Linux下运行（windows下可用cygwin）   
 
 
 ## Installation and Usage: (v1.0.1)
 
-0. Summary
+- Summary
     This program is mainly used for solving multi-class problem in Statistical Learning.
     It use the Hyper-sphere SVM model to complete data training and prediction.Now 
     we only provide C-SVC(C-Support Vector Classification), The following is the 
@@ -37,7 +37,7 @@
     8) Execution time can be recorded;    
     9) Provide cache for kernel-matrix to train or predict large-scale sample data.
 
-0. 概述
+- 概述
     该工具包主要用于解决SVM(支持向量机)多分类问题。利用该工具包，可以对特定格式的样本
     数据、使用SVM超球模型（Hyper-sphere）完成数据的训练与预测。目前本工具包仅支持C_SVC
     (C-Support Vector Classification)，具体功能如下：
